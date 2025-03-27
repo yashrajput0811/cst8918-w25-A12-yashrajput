@@ -1,0 +1,30 @@
+name: Drift Detection
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Every day at 3am UTC
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  detect-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+      - name: Terraform init
+        run: terraform -chdir=infra init
+
+      - name: Terraform plan (drift detection)
+        run: terraform -chdir=infra plan -detailed-exitcode
