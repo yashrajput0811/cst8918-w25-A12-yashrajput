@@ -1,0 +1,29 @@
+name: Pull Request Plan
+
+on:
+  pull_request:
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.7
+
+      - name: Terraform init
+        run: terraform init
+        working-directory: ./infra
+
+      - name: Terraform plan
+        run: terraform plan -no-color
+        working-directory: ./infra
