@@ -1,0 +1,8 @@
+{
+    "name": "production-deploy",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:yashrajput0811/cst8918-w25-A12-yashrajput:ref:refs/heads/main",
+    "description": "Main branch deployment",
+    "audiences": ["api://AzureADTokenExchange"]
+  }
+  
