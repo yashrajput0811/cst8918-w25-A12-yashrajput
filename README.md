@@ -62,6 +62,7 @@ _Proof of CI/CD running and PR being merged into `main`._
 
 ![Pull Request Merged](screenshots/2_PullRequestMerged.png)
 
+![Pull Request Merged](screenshots/2_pull_request.png)
 ---
 
 ## 🧹 Clean Commit History
