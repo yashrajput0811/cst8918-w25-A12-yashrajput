@@ -1,5 +1,10 @@
 # CST8918 – Lab 12: Terraform CI/CD with GitHub Actions
 
+## Team Members
+
+- Yash Rajput 
+- Yogesh Bhatt
+
 ## 📋 Objective
 
 Automate infrastructure provisioning and management using Terraform and GitHub Actions by implementing:
